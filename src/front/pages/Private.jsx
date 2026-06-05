@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx"; // <--- El import correcto
+import useGlobalReducer from "../hooks/useGlobalReducer.jsx"; 
 
 export const Private = () => {
-    const { store } = useGlobalReducer(); // <--- Así se lee el store ahora
+    const { store } = useGlobalReducer(); 
     const navigate = useNavigate();
 
     useEffect(() => {

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useGlobalReducer from "../hooks/useGlobalReducer.jsx"; // <--- El import correcto
+import useGlobalReducer from "../hooks/useGlobalReducer.jsx"; 
 
 export const Login = () => {
-    const { dispatch } = useGlobalReducer(); // <--- Así se saca el dispatch ahora
+    const { dispatch } = useGlobalReducer(); 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
@@ -20,7 +20,7 @@ export const Login = () => {
             if (response.ok) {
                 const data = await response.json();
                 sessionStorage.setItem("token", data.token);
-                dispatch({ type: "set_token", payload: data.token }); // Guarda el token
+                dispatch({ type: "set_token", payload: data.token }); 
                 navigate("/private");
             } else {
                 alert("Credenciales inválidas, intenta de nuevo.");
