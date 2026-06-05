@@ -4,6 +4,7 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 import os
 from flask import Flask, request, jsonify, url_for, send_from_directory
 from flask_migrate import Migrate
+from flask_jwt_extended import JWTManager
 from flask_swagger import swagger
 from api.utils import APIException, generate_sitemap
 from api.models import db
@@ -70,3 +71,7 @@ def serve_any_other_file(path):
 if __name__ == '__main__':
     PORT = int(os.environ.get('PORT', 3001))
     app.run(host='0.0.0.0', port=PORT, debug=True)
+
+
+app.config["JWT_SECRET_KEY"] = "super-secret-key-cambia-esto"  
+jwt = JWTManager(app)
